@@ -130,8 +130,18 @@ public class S3ClientRequest implements HttpClientRequest {
     }
 
     @Override
+    public HttpClientRequest setFollowRedirects(final boolean aBool) {
+        return myRequest.setFollowRedirects(aBool);
+    }
+
+    @Override
     public HttpClientRequest setWriteQueueMaxSize(final int aMaxSize) {
         return myRequest.setWriteQueueMaxSize(aMaxSize);
+    }
+
+    @Override
+    public String absoluteURI() {
+        return myRequest.absoluteURI();
     }
 
     @Override
@@ -430,8 +440,8 @@ public class S3ClientRequest implements HttpClientRequest {
     }
 
     @Override
-    public void reset(final long aCode) {
-        myRequest.reset(aCode);
+    public boolean reset(final long aCode) {
+        return myRequest.reset(aCode);
     }
 
     @Override
